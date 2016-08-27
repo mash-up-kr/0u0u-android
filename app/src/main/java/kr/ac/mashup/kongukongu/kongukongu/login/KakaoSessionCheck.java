@@ -13,7 +13,6 @@ import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.helper.log.Logger;
 
-import kr.ac.mashup.kongukongu.kongukongu.MainActivity;
 import kr.ac.mashup.kongukongu.kongukongu.MyAccount;
 import kr.ac.mashup.kongukongu.kongukongu.SplashActivity;
 import kr.ac.mashup.kongukongu.kongukongu.server.RetrofitSingleton;

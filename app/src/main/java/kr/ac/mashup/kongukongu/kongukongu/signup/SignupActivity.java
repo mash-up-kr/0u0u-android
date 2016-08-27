@@ -1,12 +1,8 @@
 package kr.ac.mashup.kongukongu.kongukongu.signup;
 
-import android.app.Application;
 import android.content.Intent;
-import android.icu.text.UnicodeSetSpanner;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,20 +12,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.kakao.kakaotalk.KakaoTalkService;
 import com.kakao.kakaotalk.callback.TalkResponseCallback;
 import com.kakao.kakaotalk.response.KakaoTalkProfile;
 import com.kakao.network.ErrorResult;
-import com.kakao.usermgmt.response.model.UserProfile;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
-import butterknife.OnClick;
-import kr.ac.mashup.kongukongu.kongukongu.GlobalApplication;
 import kr.ac.mashup.kongukongu.kongukongu.KakaoProfileInformation;
-import kr.ac.mashup.kongukongu.kongukongu.MainActivity;
 import kr.ac.mashup.kongukongu.kongukongu.MyAccount;
 import kr.ac.mashup.kongukongu.kongukongu.R;
 import kr.ac.mashup.kongukongu.kongukongu.SplashActivity;

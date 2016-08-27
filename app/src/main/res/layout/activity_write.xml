@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="kr.ac.mashup.kongukongu.kongukongu.write.WriteActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <RelativeLayout
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text_view_one"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textSize="1dp"
+            android:layout_marginLeft="6dp"
+            android:text=""
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_one"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:hint="상품명을 입력해주세요."
+                android:textColorHint="#cccaca"
+                android:textSize="16sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:hint="상세설명을 입력해주세요(최대 30자)"
+                android:gravity="top"
+                android:textColorHint="#cccaca"
+                android:textSize="16sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@android:drawable/editbox_background_normal"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_button_teacher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="깨끗함" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_teac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="보통" />
+
+                <RadioButton
+                    android:id="@+id/radio_button_student"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="더러움" />
+
+
+            </RadioGroup>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <Button
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:text=""
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <ImageView
+                    android:layout_marginTop="12dp"
+                    android:padding="30dp"
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="#eee"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+            </RelativeLayout>
+
+            <Button
+                android:layout_below="@+id/image"
+                android:id="@+id/button_complete"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="#00bcd4"
+                android:text="완료"
+                android:textColor="#FFFFFF"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
