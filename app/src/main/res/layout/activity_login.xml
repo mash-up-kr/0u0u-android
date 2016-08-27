@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
-    tools:context="kr.ac.mashup.kongukongu.kongukongu.login.LoginActivity">
+    tools:context=".login.KakaoLoginActivity">
 
     <com.kakao.usermgmt.LoginButton
         android:layout_centerHorizontal="true"

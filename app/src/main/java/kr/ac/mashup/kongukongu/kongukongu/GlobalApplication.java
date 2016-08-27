@@ -1,9 +1,10 @@
-package kr.ac.mashup.kongukongu.kongukongu.login;
+package kr.ac.mashup.kongukongu.kongukongu;
 
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.kakao.auth.ApprovalType;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.IApplicationConfig;
@@ -12,9 +13,6 @@ import com.kakao.auth.KakaoAdapter;
 import com.kakao.auth.KakaoSDK;
 import com.kakao.util.helper.log.Logger;
 
-/**
- * Created by owner on 2016-08-27.
- */
 public class GlobalApplication extends Application {
 
     private static volatile GlobalApplication instance = null;
@@ -37,9 +35,9 @@ public class GlobalApplication extends Application {
         instance = this;
 
         KakaoSDK.init(new KakaoSDKAdapter());
+        Fresco.initialize(this);
 
     }
-
 
     private static class KakaoSDKAdapter extends KakaoAdapter {
         /**
@@ -61,11 +59,6 @@ public class GlobalApplication extends Application {
                 public boolean isUsingWebviewTimer() {
                     return false;
                 }
-
-//                @Override
-//                public boolean isSecureMode() {
-//                    return false;
-//                }
 
                 @Override
                 public ApprovalType getApprovalType() {
