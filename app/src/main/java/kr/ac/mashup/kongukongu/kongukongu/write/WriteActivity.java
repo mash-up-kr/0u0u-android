@@ -14,19 +14,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import java.io.File;
 
 import kr.ac.mashup.kongukongu.kongukongu.MyAccount;
 import kr.ac.mashup.kongukongu.kongukongu.R;
-import kr.ac.mashup.kongukongu.kongukongu.server.RetrofitSingleton;
-import kr.ac.mashup.kongukongu.kongukongu.server.ServerBoolResult;
-import kr.ac.mashup.kongukongu.kongukongu.signup.SignupActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class WriteActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -43,6 +39,11 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
     private MyAccount myAccount;
     private String profileImageURL;
 
+    private EditText edit_name;
+    private EditText edit_description;
+    private RadioGroup radioGroup;
+    private RadioButton radioBtn01, radioBtn02, radioBtn03;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,40 +58,48 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
         mButton = (Button) findViewById(R.id.button);
         mPhotoImageView = (ImageView) findViewById(R.id.image);
 
+        edit_name = (EditText)findViewById(R.id.edit_write_name);
+        edit_description = (EditText)findViewById(R.id.edit_write_explain);
+        radioGroup = (RadioGroup)findViewById(R.id.radio_group);
+        radioBtn01 = (RadioButton) findViewById(R.id.radio_button_write_button01);
+        radioBtn02 = (RadioButton) findViewById(R.id.radio_button_write_button02);
+        radioBtn03 = (RadioButton) findViewById(R.id.radio_button_write_button03);
+
+
         mButton.setAlpha(0);
 
         mButton.setOnClickListener(this);
 
-        btnComplete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (regionNum != 0){
-                    RetrofitSingleton retrofitSingleton = RetrofitSingleton.getInstance();
-
-                    Call<ServerBoolResult> call = retrofitSingleton.getWrirtContent(
-                            myAccount.getKakaoId(), profileImageURL,
-                            edit_signup_nickname.getText().toString(), regionNum);
-
-                    call.enqueue(new Callback<ServerBoolResult>() {
-                        @Override
-                        public void onResponse(Call<ServerBoolResult> call, Response<ServerBoolResult> response) {
-                            if (response.body().isbResult()){
-                                Toast.makeText(WriteActivity.this, "회원가입 성공" ,Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(WriteActivity.this, "회원가입 실패" ,Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<ServerBoolResult> call, Throwable t) {
-
-                        }
-                    });
-                }else{
-                    Toast.makeText(WriteActivity.this, "지역을 선택해주세요!",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        btnComplete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (regionNum != 0){
+//                    RetrofitSingleton retrofitSingleton = RetrofitSingleton.getInstance();
+//
+//                    Call<ServerBoolResult> call = retrofitSingleton.getWrirtContent(
+//                            myAccount.getKakaoId(), profileImageURL,
+//                            edit_name.getText().toString(), regionNum);
+//
+//                    call.enqueue(new Callback<ServerBoolResult>() {
+//                        @Override
+//                        public void onResponse(Call<ServerBoolResult> call, Response<ServerBoolResult> response) {
+//                            if (response.body().isbResult()){
+//                                Toast.makeText(WriteActivity.this, "회원가입 성공" ,Toast.LENGTH_SHORT).show();
+//                            }else{
+//                                Toast.makeText(WriteActivity.this, "회원가입 실패" ,Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<ServerBoolResult> call, Throwable t) {
+//
+//                        }
+//                    });
+//                }else{
+//                    Toast.makeText(WriteActivity.this, "지역을 선택해주세요!",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
 
     private void doTakePhotoAction() {

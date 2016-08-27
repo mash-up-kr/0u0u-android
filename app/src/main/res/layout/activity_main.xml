@@ -55,8 +55,6 @@
             fab:fab_colorPressed="@color/colorAccent01"
             fab:fab_colorRipple="@color/colorAccent01" />
 
-
     </FrameLayout>
-
 
 </LinearLayout>
