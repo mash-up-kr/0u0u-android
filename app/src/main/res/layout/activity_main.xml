@@ -16,12 +16,6 @@
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="main activity"/>
-
-
     <!--<Spinner-->
     <!--android:id="@+id/spinner"-->
     <!--android:layout_width="fill_parent"-->
@@ -60,8 +54,6 @@
             fab:fab_colorPressed="@color/colorAccent"
             fab:fab_colorRipple="@color/colorAccent" />
 
-
     </FrameLayout>
-
 
 </LinearLayout>

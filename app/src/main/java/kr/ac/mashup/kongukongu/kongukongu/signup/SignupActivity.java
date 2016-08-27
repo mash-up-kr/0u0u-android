@@ -22,6 +22,7 @@ import kr.ac.mashup.kongukongu.kongukongu.KakaoProfileInformation;
 import kr.ac.mashup.kongukongu.kongukongu.MyAccount;
 import kr.ac.mashup.kongukongu.kongukongu.R;
 import kr.ac.mashup.kongukongu.kongukongu.SplashActivity;
+import kr.ac.mashup.kongukongu.kongukongu.home.MainActivity;
 import kr.ac.mashup.kongukongu.kongukongu.server.RetrofitSingleton;
 import kr.ac.mashup.kongukongu.kongukongu.server.ServerBoolResult;
 import retrofit2.Call;
@@ -72,9 +73,8 @@ public class SignupActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<ServerBoolResult> call, Response<ServerBoolResult> response) {
                             if (response.body().isbResult()){
-                                Toast.makeText(SignupActivity.this, "회원가입 성공" ,Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(SignupActivity.this, "회원가입 실패" ,Toast.LENGTH_SHORT).show();
+                                redirectMainActivity();
+                                //Toast.makeText(SignupActivity.this, "회원가입 성공" ,Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -117,7 +117,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void redirectMainActivity() {
-        startActivity(new Intent(SignupActivity.this, SplashActivity.class));
+        startActivity(new Intent(SignupActivity.this, MainActivity.class));
         finish();
     }
 
