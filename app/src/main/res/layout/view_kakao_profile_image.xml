@@ -9,11 +9,9 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/user_profile_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         fresco:placeholderImage="@drawable/default_profile"
-        fresco:roundAsCircle="true"
-        fresco:roundingBorderColor="#000000"
-        fresco:roundingBorderWidth="4dp"/>
+        fresco:roundAsCircle="true" />
 
 </LinearLayout>

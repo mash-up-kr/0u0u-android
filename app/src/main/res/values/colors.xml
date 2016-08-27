@@ -6,4 +6,7 @@
     <color name="colorAccent01">#fbf9fa</color>
     <color name="gray">#FFFFFF</color>
     <color name="color_post_point">#00bcd4</color>
+
+    <color name="ouou_main_color">#1ABC9C</color>
+    <color name="ouou_profile_color">#29A98B</color>
 </resources>

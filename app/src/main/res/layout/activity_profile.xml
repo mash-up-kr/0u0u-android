@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="kr.ac.mashup.kongukongu.kongukongu.profile.ProfileActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/ouou_main_color"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        android:elevation="3dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@color/ouou_profile_color">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="jungmin"
+            android:id="@+id/txt_profile_nickname"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:layout_below="@+id/view_profile_profileImage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="roqte1017"
+            android:id="@+id/txt_profile_region"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:layout_below="@+id/txt_profile_nickname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp" />
+
+        <kr.ac.mashup.kongukongu.kongukongu.KakaoProfileInformation
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/view_profile_profileImage"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

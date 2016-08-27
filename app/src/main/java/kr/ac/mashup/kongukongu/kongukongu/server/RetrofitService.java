@@ -21,6 +21,10 @@ public interface RetrofitService {
             @Field("user_region") int regionNum);
 
     @FormUrlEncoded
+    @POST("user/info")
+    Call<ServerUserResult> userInfo(@Field("user_kakao_id") String kakaoID);
+
+    @FormUrlEncoded
     @POST("content/write")
     Call<ServerBoolResult> writeContent(
             @Field("contents_title") String contentTitle,

@@ -73,7 +73,6 @@ public class SignupActivity extends AppCompatActivity {
                         public void onResponse(Call<ServerBoolResult> call, Response<ServerBoolResult> response) {
                             if (response.body().isbResult()){
                                 redirectMainActivity();
-                                //Toast.makeText(SignupActivity.this, "회원가입 성공" ,Toast.LENGTH_SHORT).show();
                             }
                         }
 

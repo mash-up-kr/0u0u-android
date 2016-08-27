@@ -66,6 +66,10 @@ public class RetrofitSingleton {
         return service.registerUser(kakaoID, kakaoProfileImage, nickname, regionNum);
     }
 
+    public Call<ServerUserResult> getUserInfo(String kakaoID) {
+        return service.userInfo(kakaoID);
+    }
+
     public Call<ServerBoolResult> getWrirtContent(String contentTitle, String contentImage, String contentDescription, int contentsStatus, String contentOwner) {
         return service.writeContent(contentTitle, contentImage, contentDescription, contentsStatus, contentOwner);
 
