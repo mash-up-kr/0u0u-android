@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -51,6 +53,11 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
     private RadioGroup radioGroup;
     private RadioButton radioBtn01, radioBtn02, radioBtn03;
     private Bitmap photo;
+    private ImageView imageView;
+
+    int status;
+
+    TextView txt01, txt02, txt03;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,32 +75,98 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
 
         edit_name = (EditText)findViewById(R.id.edit_write_name);
         edit_description = (EditText)findViewById(R.id.edit_write_explain);
-        radioGroup = (RadioGroup)findViewById(R.id.radio_group);
-        radioBtn01 = (RadioButton) findViewById(R.id.radio_button_write_button01);
-        radioBtn02 = (RadioButton) findViewById(R.id.radio_button_write_button02);
-        radioBtn03 = (RadioButton) findViewById(R.id.radio_button_write_button03);
+//        radioGroup = (RadioGroup)findViewById(R.id.radio_group);
+//        radioBtn01 = (RadioButton) findViewById(R.id.radio_button_write_button01);
+//        radioBtn02 = (RadioButton) findViewById(R.id.radio_button_write_button02);
+//        radioBtn03 = (RadioButton) findViewById(R.id.radio_button_write_button03);
+
+        txt01 = (TextView)findViewById(R.id.text_high);
+        txt01 = (TextView)findViewById(R.id.text_middle);
+        txt01 = (TextView)findViewById(R.id.text_low);
+
+        edit_name.setSelection(5);
+        edit_description.setSelection(11);
 
         mButton.setAlpha(0);
 
         mButton.setOnClickListener(this);
 
-        btnComplete.setOnClickListener(new View.OnClickListener() {
+//        btnComplete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//                photo.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+//                byte[] byteArray = byteArrayOutputStream.toByteArray();
+//
+//                String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+//
+////                RetrofitSingleton retrofitSingleton = RetrofitSingleton.getInstance();
+////                Call<ServerBoolResult> call = retrofitSingleton.getWrirtContent(
+////                        edit_name.getText().toString(), encoded, edit_description.getText().toString(),
+////                );
+////
+////                call.enqueue(new Callback<ServerBoolResult>() {
+////                    @Override
+////                    public void onResponse(Call<ServerBoolResult> call, Response<ServerBoolResult> response) {
+//
+//            }
+//        });
+        txt01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                photo.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                byte[] byteArray = byteArrayOutputStream .toByteArray();
+                txt01.setBackgroundColor(Integer.parseInt("8df796"));
+                txt02.setBackgroundColor(Integer.parseInt("#d6d3d3"));
+                txt03.setBackgroundColor(Integer.parseInt("#d6d3d3"));
+            }
+        });
 
-                String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
-
-//                RetrofitSingleton retrofitSingleton = RetrofitSingleton.getInstance();
-//                Call<ServerBoolResult> call = retrofitSingleton.getWrirtContent(
-//                        edit_name.getText().toString(), encoded, edit_description.getText().toString(),
-//                );
+//        txt02.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//                public void onClick(View view) {
+//                txt02.setBackgroundColor(Integer.parseInt("8df796"));
+//                txt01.setBackgroundColor(Integer.parseInt("#d6d3d3"));
+//                txt03.setBackgroundColor(Integer.parseInt("#d6d3d3"));
+//            }
+//        });
 //
-//                call.enqueue(new Callback<ServerBoolResult>() {
-//                    @Override
-//                    public void onResponse(Call<ServerBoolResult> call, Response<ServerBoolResult> response) {
+//        txt03.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                txt03.setBackgroundColor(Integer.parseInt("8df796"));
+//                txt01.setBackgroundColor(Integer.parseInt("#d6d3d3"));
+//                txt02.setBackgroundColor(Integer.parseInt("#d6d3d3"));
+//            }
+//        });
+
+//        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                Log.i("MyTag", "radioGroup");
+//
+//                switch (checkedId) {
+//                    case R.id.radio_button_write_button01:
+//                        status = 0;
+//                        break;
+//                    case R.id.radio_button_write_button02:
+//                        status = 1;
+//                        break;
+//                    case R.id.radio_button_write_button03:
+//                        status = 2;
+//                        break;
+//                }
+//            }
+//        });
+
+//        btnComplete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (regionNum != 0){
+//                    RetrofitSingleton retrofitSingleton = RetrofitSingleton.getInstance();
+//
+//                    Call<ServerBoolResult> call = retrofitSingleton.getWrirtContent(
+//                            myAccount.getKakaoId(), profileImageURL,
+//                            edit_name.getText().toString(), regionNum,
+//                            edit_description.getText().toString(),R.mipmap.ic_launcher,status,);
 //
 //                    }
 //
@@ -102,8 +175,14 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
 //
 //                    }
 //                });
-            }
-        });
+//                        }
+//                    });
+//                }else{
+//                    Toast.makeText(WriteActivity.this, "지역을 선택해주세요!",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
     }
 
     private void doTakePhotoAction() {
@@ -154,6 +233,7 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
                     photo = extras.getParcelable("data");
 
                     mPhotoImageView.setImageBitmap(photo);
+                    Log.i("MyTag",photo.toString());
                 }
 
 //                // 임시 파일 삭제

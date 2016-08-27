@@ -14,7 +14,8 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="3dp"/>
 
     <!--<Spinner-->
     <!--android:id="@+id/spinner"-->
@@ -27,7 +28,8 @@
     <Spinner
         android:gravity="center"
         android:id="@+id/spinner"
-        android:layout_width="300dp"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:background="@android:drawable/editbox_background_normal" />
