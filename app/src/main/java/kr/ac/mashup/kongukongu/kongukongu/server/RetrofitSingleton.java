@@ -14,10 +14,10 @@ public class RetrofitSingleton {
     private static RetrofitSingleton instance;
     private RetrofitService service;
 
-    public static RetrofitSingleton getInstance(){
-        if(instance == null){
-            synchronized (RetrofitSingleton.class){
-                if(instance == null){
+    public static RetrofitSingleton getInstance() {
+        if (instance == null) {
+            synchronized (RetrofitSingleton.class) {
+                if (instance == null) {
                     instance = new RetrofitSingleton();
                 }
             }
@@ -25,7 +25,7 @@ public class RetrofitSingleton {
         return instance;
     }
 
-    private RetrofitSingleton(){
+    private RetrofitSingleton() {
 
         OkHttpClient okHttpClient = makeOkHttpClient(makeLoggingInterceptor());
 
@@ -44,25 +44,31 @@ public class RetrofitSingleton {
 
     }
 
-    private OkHttpClient makeOkHttpClient(HttpLoggingInterceptor httpLoggingInterceptor){
+    private OkHttpClient makeOkHttpClient(HttpLoggingInterceptor httpLoggingInterceptor) {
         return new OkHttpClient.Builder()
                 .addInterceptor(httpLoggingInterceptor)
                 .build();
     }
 
 
-    private HttpLoggingInterceptor makeLoggingInterceptor(){
+    private HttpLoggingInterceptor makeLoggingInterceptor() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor()
                 .setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY
                         : HttpLoggingInterceptor.Level.NONE);
         return logging;
     }
 
-    public Call<ServerBoolResult> getCheckUser(String kakaoID){
+    public Call<ServerBoolResult> getCheckUser(String kakaoID) {
         return service.checkUser(kakaoID);
     }
 
-    public  Call<ServerBoolResult> getRegisterUser(String kakaoID, String kakaoProfileImage, String nickname, int regionNum){
-        return service.registerUser(kakaoID,kakaoProfileImage, nickname, regionNum);
+    public Call<ServerBoolResult> getRegisterUser(String kakaoID, String kakaoProfileImage, String nickname, int regionNum) {
+        return service.registerUser(kakaoID, kakaoProfileImage, nickname, regionNum);
+    }
+
+    public Call<ServerBoolResult> getWrirtContent(String contentTitle, String contentImage, String contentDescription, int contentsStatus, String contentOwner) {
+        return service.writeContent(contentTitle, contentImage, contentDescription, contentsStatus, contentOwner);
+
     }
 }
+

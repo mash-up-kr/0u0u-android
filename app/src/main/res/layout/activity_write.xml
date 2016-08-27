@@ -37,6 +37,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/edit_write_name"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginBottom="4dp"
@@ -46,6 +47,7 @@
                 android:textSize="16sp" />
 
             <EditText
+                android:id="@+id/edit_write_explain"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
                 android:layout_marginBottom="4dp"
@@ -56,6 +58,7 @@
                 android:textSize="16sp" />
 
             <RadioGroup
+                android:id="@+id/radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -64,21 +67,21 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radio_button_teacher"
+                    android:id="@+id/radio_button_write_button01"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="깨끗함" />
 
                 <RadioButton
-                    android:id="@+id/radio_button_teac"
+                    android:id="@+id/radio_button_write_button02"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="보통" />
 
                 <RadioButton
-                    android:id="@+id/radio_button_student"
+                    android:id="@+id/radio_button_write_button03"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="더러움" />

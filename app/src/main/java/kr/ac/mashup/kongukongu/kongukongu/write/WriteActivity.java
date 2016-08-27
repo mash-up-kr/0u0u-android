@@ -15,10 +15,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.File;
 
+import kr.ac.mashup.kongukongu.kongukongu.MyAccount;
 import kr.ac.mashup.kongukongu.kongukongu.R;
+import kr.ac.mashup.kongukongu.kongukongu.server.RetrofitSingleton;
+import kr.ac.mashup.kongukongu.kongukongu.server.ServerBoolResult;
+import kr.ac.mashup.kongukongu.kongukongu.signup.SignupActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class WriteActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,7 +37,11 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
 
     private Uri mImageCaptureUri;
     private ImageView mPhotoImageView;
-    private Button mButton;
+    private Button mButton, btnComplete;
+
+    private int regionNum = 0;
+    private MyAccount myAccount;
+    private String profileImageURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +60,37 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
         mButton.setAlpha(0);
 
         mButton.setOnClickListener(this);
+
+        btnComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (regionNum != 0){
+                    RetrofitSingleton retrofitSingleton = RetrofitSingleton.getInstance();
+
+                    Call<ServerBoolResult> call = retrofitSingleton.getWrirtContent(
+                            myAccount.getKakaoId(), profileImageURL,
+                            edit_signup_nickname.getText().toString(), regionNum);
+
+                    call.enqueue(new Callback<ServerBoolResult>() {
+                        @Override
+                        public void onResponse(Call<ServerBoolResult> call, Response<ServerBoolResult> response) {
+                            if (response.body().isbResult()){
+                                Toast.makeText(WriteActivity.this, "회원가입 성공" ,Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(WriteActivity.this, "회원가입 실패" ,Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ServerBoolResult> call, Throwable t) {
+
+                        }
+                    });
+                }else{
+                    Toast.makeText(WriteActivity.this, "지역을 선택해주세요!",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void doTakePhotoAction() {

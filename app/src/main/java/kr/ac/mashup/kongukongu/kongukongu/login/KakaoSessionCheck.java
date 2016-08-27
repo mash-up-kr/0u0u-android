@@ -14,7 +14,7 @@ import com.kakao.usermgmt.response.model.UserProfile;
 import com.kakao.util.helper.log.Logger;
 
 import kr.ac.mashup.kongukongu.kongukongu.MyAccount;
-import kr.ac.mashup.kongukongu.kongukongu.SplashActivity;
+import kr.ac.mashup.kongukongu.kongukongu.home.MainActivity;
 import kr.ac.mashup.kongukongu.kongukongu.server.RetrofitSingleton;
 import kr.ac.mashup.kongukongu.kongukongu.server.ServerBoolResult;
 import kr.ac.mashup.kongukongu.kongukongu.signup.SignupActivity;
@@ -101,7 +101,7 @@ public class KakaoSessionCheck extends AppCompatActivity {
     }
 
     private void redirectMainActivity() {
-        startActivity(new Intent(KakaoSessionCheck.this, SplashActivity.class));
+        startActivity(new Intent(KakaoSessionCheck.this, MainActivity.class));
         finish();
     }
 

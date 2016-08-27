@@ -22,6 +22,8 @@ import com.melnykov.fab.FloatingActionButton;
 import java.util.ArrayList;
 
 import kr.ac.mashup.kongukongu.kongukongu.R;
+import kr.ac.mashup.kongukongu.kongukongu.RecyclerItemClickListener;
+import kr.ac.mashup.kongukongu.kongukongu.post.PostActivity;
 import kr.ac.mashup.kongukongu.kongukongu.profile.ProfileActivity;
 import kr.ac.mashup.kongukongu.kongukongu.write.WriteActivity;
 
@@ -106,6 +108,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         fab.setColorFilter(R.color.gray);
+
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(MainActivity.this, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        Toast.makeText(MainActivity.this, "a", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, PostActivity.class);
+                        startActivity(intent);
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+
+                    }
+                })
+        );
 
     }
 

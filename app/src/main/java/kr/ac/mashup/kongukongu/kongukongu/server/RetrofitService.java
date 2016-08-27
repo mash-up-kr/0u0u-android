@@ -19,4 +19,13 @@ public interface RetrofitService {
             @Field("user_kakao_profileImage") String kakaoProfileImage,
             @Field("user_nickname") String nickname,
             @Field("user_region") int regionNum);
+
+    @FormUrlEncoded
+    @POST("content/write")
+    Call<ServerBoolResult> writeContent(
+            @Field("contents_title") String contentTitle,
+            @Field("contents_image") String contentImage,
+            @Field("contents_description") String contentDescription,
+            @Field("contents_status") int contentsStatus,
+            @Field("contents_owner") String contentOwner);
 }

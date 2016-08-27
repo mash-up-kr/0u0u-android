@@ -1,12 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="kr.ac.mashup.kongukongu.kongukongu.post.PostActivity">
 
-</RelativeLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+            <!--android:id="@+id/circle_image_view_profile"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--android:src="@mipmap/ic_launcher" />-->
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_weight="1"
+        android:background="@drawable/boundary"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/image_view_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:background="@android:color/darker_gray"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사만원 주고 산 냄비"
+                    android:layout_marginLeft="16dp"
+                    android:textSize="20dp"
+                    android:textColor="#000000"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circle_image_view_profile"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/edit_text_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:padding="8dp"
+                        android:text="test"
+                        android:textSize="14dp" />
+
+                    <RatingBar
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/rating_bar_score"
+                        style="@style/AppTheme.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:rating="4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/text_view_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:maxLines="4"
+                        android:ellipsize="end"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dui leo, elementum id porttitor non, porta sed nisl. Praesent dapibus consequat sem, in volutpat risus bibendum id. Ut iaculis egestas leo, ac convallis urna egestas sit amet. Integer pharetra nibh non gravida interdum. Curabitur tempor mauris neque, dapibus laoreet nisl iaculis sed. Nam velit eros, posuere id turpis sit amet, imperdiet ultricies urna. Etiam ac mauris at turpis rutrum molestie sed vel justo. Sed hendrerit turpis lacus, vel porttitor libero aliquet ac. Donec sollicitudin sem tellus, sed elementum nisl vulputate iaculis. Vivamus pulvinar eros nisi, in luctus ante efficitur imperdiet. Nullam vitae sem lorem. Aenean accumsan urna vel erat blandit, non viverra massa iaculis. Proin blandit vitae tortor non luctus."/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/layout_upload_photo"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true">
+
+            <ImageView
+                android:id="@+id/button_upload_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/drawable_border_button_post" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="신청하기"
+                android:textColor="@color/color_post_point" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

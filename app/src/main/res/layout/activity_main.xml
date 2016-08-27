@@ -16,12 +16,6 @@
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="main activity"/>
-
-
     <!--<Spinner-->
     <!--android:id="@+id/spinner"-->
     <!--android:layout_width="fill_parent"-->
@@ -31,6 +25,7 @@
     <!--android:padding="5dp" />-->
 
     <Spinner
+        android:gravity="center"
         android:id="@+id/spinner"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -50,15 +45,15 @@
 
         <com.melnykov.fab.FloatingActionButton
             android:id="@+id/fab"
-            android:layout_width="wrap_content"
+            android:layout_width="5dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
             android:background="@drawable/pencil"
-            android:src="@drawable/pencil"
+            android:src="@android:drawable/ic_input_add"
             fab:fab_colorNormal="@color/colorPrimary"
-            fab:fab_colorPressed="@color/colorAccent"
-            fab:fab_colorRipple="@color/colorAccent" />
+            fab:fab_colorPressed="@color/colorAccent01"
+            fab:fab_colorRipple="@color/colorAccent01" />
 
 
     </FrameLayout>
