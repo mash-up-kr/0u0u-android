@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,10 +20,16 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 import kr.ac.mashup.kongukongu.kongukongu.MyAccount;
 import kr.ac.mashup.kongukongu.kongukongu.R;
+import kr.ac.mashup.kongukongu.kongukongu.server.RetrofitSingleton;
+import kr.ac.mashup.kongukongu.kongukongu.server.ServerBoolResult;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class WriteActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -43,6 +50,7 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
     private EditText edit_description;
     private RadioGroup radioGroup;
     private RadioButton radioBtn01, radioBtn02, radioBtn03;
+    private Bitmap photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,41 +73,37 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
         radioBtn02 = (RadioButton) findViewById(R.id.radio_button_write_button02);
         radioBtn03 = (RadioButton) findViewById(R.id.radio_button_write_button03);
 
-
         mButton.setAlpha(0);
 
         mButton.setOnClickListener(this);
 
-//        btnComplete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (regionNum != 0){
-//                    RetrofitSingleton retrofitSingleton = RetrofitSingleton.getInstance();
+        btnComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                photo.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream .toByteArray();
+
+                String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+
+//                RetrofitSingleton retrofitSingleton = RetrofitSingleton.getInstance();
+//                Call<ServerBoolResult> call = retrofitSingleton.getWrirtContent(
+//                        edit_name.getText().toString(), encoded, edit_description.getText().toString(),
+//                );
 //
-//                    Call<ServerBoolResult> call = retrofitSingleton.getWrirtContent(
-//                            myAccount.getKakaoId(), profileImageURL,
-//                            edit_name.getText().toString(), regionNum);
+//                call.enqueue(new Callback<ServerBoolResult>() {
+//                    @Override
+//                    public void onResponse(Call<ServerBoolResult> call, Response<ServerBoolResult> response) {
 //
-//                    call.enqueue(new Callback<ServerBoolResult>() {
-//                        @Override
-//                        public void onResponse(Call<ServerBoolResult> call, Response<ServerBoolResult> response) {
-//                            if (response.body().isbResult()){
-//                                Toast.makeText(WriteActivity.this, "회원가입 성공" ,Toast.LENGTH_SHORT).show();
-//                            }else{
-//                                Toast.makeText(WriteActivity.this, "회원가입 실패" ,Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
+//                    }
 //
-//                        @Override
-//                        public void onFailure(Call<ServerBoolResult> call, Throwable t) {
+//                    @Override
+//                    public void onFailure(Call<ServerBoolResult> call, Throwable t) {
 //
-//                        }
-//                    });
-//                }else{
-//                    Toast.makeText(WriteActivity.this, "지역을 선택해주세요!",Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+//                    }
+//                });
+            }
+        });
     }
 
     private void doTakePhotoAction() {
@@ -147,15 +151,16 @@ public class WriteActivity extends AppCompatActivity implements View.OnClickList
                 final Bundle extras = data.getExtras();
 
                 if (extras != null) {
-                    Bitmap photo = extras.getParcelable("data");
+                    photo = extras.getParcelable("data");
+
                     mPhotoImageView.setImageBitmap(photo);
                 }
 
-                // 임시 파일 삭제
-                File f = new File(mImageCaptureUri.getPath());
-                if (f.exists()) {
-                    f.delete();
-                }
+//                // 임시 파일 삭제
+//                File f = new File(mImageCaptureUri.getPath());
+//                if (f.exists()) {
+//                    f.delete();
+//                }
 
                 break;
             }
