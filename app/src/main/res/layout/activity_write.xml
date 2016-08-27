@@ -16,18 +16,17 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <RelativeLayout
-        android:layout_margin="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="16dp">
 
         <TextView
             android:id="@+id/text_view_one"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:textSize="1dp"
             android:layout_marginLeft="6dp"
             android:text=""
-            />
+            android:textSize="1dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,9 +39,9 @@
                 android:id="@+id/edit_write_name"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:layout_marginBottom="4dp"
                 android:background="@android:drawable/editbox_background_normal"
                 android:hint="상품명을 입력해주세요."
+                android:text="Title"
                 android:textColorHint="#cccaca"
                 android:textSize="16sp" />
 
@@ -52,74 +51,145 @@
                 android:layout_height="110dp"
                 android:layout_marginBottom="4dp"
                 android:background="@android:drawable/editbox_background_normal"
-                android:hint="상세설명을 입력해주세요(최대 30자)"
                 android:gravity="top"
+                android:hint="상세설명을 입력해주세요(최대 30자)"
+                android:text="Description"
                 android:textColorHint="#cccaca"
                 android:textSize="16sp" />
 
-            <RadioGroup
-                android:id="@+id/radio_group"
+            <!--<RadioGroup-->
+            <!--android:id="@+id/radio_group"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:background="@android:drawable/editbox_background_normal"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/radio_button_write_button01"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:text="깨끗함" />-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/radio_button_write_button02"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:text="보통" />-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/radio_button_write_button03"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="더러움" />-->
+
+
+            <!--</RadioGroup>-->
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@android:drawable/editbox_background_normal"
+                android:layout_height="60dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/radio_button_write_button01"
+                <LinearLayout
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="깨끗함" />
+                    android:layout_weight="1">
 
-                <RadioButton
-                    android:id="@+id/radio_button_write_button02"
+                    <TextView
+                        android:id="@+id/text_high"
+                        android:layout_gravity="center"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/choice_round"
+                        android:backgroundTint="#d6d3d3"
+                        android:gravity="center"
+                        android:text="상"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="보통" />
+                    android:layout_weight="1">
 
-                <RadioButton
-                    android:id="@+id/radio_button_write_button03"
+                    <TextView
+                        android:id="@+id/text_middle"
+                        android:layout_gravity="center"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/choice_round"
+                        android:gravity="center"
+                        android:text="중"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="더러움" />
+                    android:layout_weight="1">
 
+                    <TextView
+                        android:id="@+id/text_low"
+                        android:backgroundTint="#d6d3d3"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/choice_round"
+                        android:gravity="center"
+                        android:text="하"
+                        android:textSize="18dp" />
 
-            </RadioGroup>
+                </LinearLayout>
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <Button
-                    android:layout_marginTop="12dp"
                     android:id="@+id/button"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:text=""
+                    android:layout_height="300dp"
                     android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:text="" />
 
                 <ImageView
-                    android:layout_marginTop="12dp"
-                    android:padding="30dp"
                     android:id="@+id/image"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="#eee"
+                    android:layout_height="200dp"
                     android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:padding="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/camera" />
 
             </RelativeLayout>
 
             <Button
-                android:layout_below="@+id/image"
                 android:id="@+id/button_complete"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_below="@+id/image"
                 android:layout_marginTop="20dp"
                 android:background="#00bcd4"
                 android:text="완료"
