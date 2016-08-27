@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="kakao_app_key">f0065024bef5a9a4b0b6521207f8b4ee</string>
+    <string name="kakao_scheme">kakaof0065024bef5a9a4b0b6521207f8b4ee</string>
+    <string name="kakaotalk_host">kakaotalk</string>
+</resources>
